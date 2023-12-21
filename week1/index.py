@@ -23,64 +23,63 @@ logging.basicConfig(format='%(levelname)s:%(message)s')
 # NOTE: this is not a complete list of fields.  If you wish to add more, put in the appropriate XPath expression.
 # TODO: is there a way to do this using XPath/XSL Functions so that we don't have to maintain a big list?
 mappings = {
-    "sku":"sku/text()",
+    "sku": "sku/text()",
     "productId": "productId/text()",
     "name": "name/text()",
-    "type":"type/text()",
+    "type": "type/text()",
     "shortDescription": "shortDescription/text()",
     "startDate": "startDate/text()",
-"active": "active/text()",
-"regularPrice": "regularPrice/text()",
-"salePrice": "salePrice/text()",
-"shortDescription": "shortDescription/text()",
-"shortDescriptionHtml": "shortDescriptionHtml/text()",
-"longDescription": "longDescription/text()",
-"longDescriptionHtml": "longDescriptionHtml/text()",
-"artistName": "artistName/text()",
-"onSale": "onSale/text()",
-"digital": "digital/text()",
-"frequentlyPurchasedWith": "frequentlyPurchasedWith/*/text()",  # Note the match all here to get the subfields
-"accessories": "accessories/*/text()" ,  # Note the match all here to get the subfields
-"relatedProducts": "relatedProducts/*/text()",  # Note the match all here to get the subfields
-"crossSell": "crossSell/text()",
-"salesRankShortTerm": "salesRankShortTerm/text()",
-"salesRankMediumTerm": "salesRankMediumTerm/text()",
-"salesRankLongTerm": "salesRankLongTerm/text()",
-"bestSellingRank": "bestSellingRank/text()",
-"url": "url/text()",
-"categoryPath": "categoryPath/*/name/text()",  # Note the match all here to get the subfields
-"categoryPathIds": "categoryPath/*/id/text()",  # Note the match all here to get the subfields
-"categoryLeaf": "categoryPath/category[last()]/id/text()",
-"categoryPathCount": "count(categoryPath/*/name)",
-"customerReviewCount": "customerReviewCount/text()",
-"customerReviewAverage": "customerReviewAverage/text()",
-"inStoreAvailability": "inStoreAvailability/text()",
-"onlineAvailability": "onlineAvailability/text()",
-"releaseDate": "releaseDate/text()",
-"shippingCost": "shippingCost/text()",
-"class": "class/text()",
-"classId": "classId/text()",
-"subclass": "subclass/text()",
-"subclassId": "subclassId/text()",
-"department": "department/text()",
-"departmentId": "departmentId/text()",
-"bestBuyItemId": "bestBuyItemId/text()",
-"description": "description/text()",
-"manufacturer": "manufacturer/text()",
-"modelNumber": "modelNumber/text()",
-"image": "image/text()",
-"condition": "condition/text()",
-"inStorePickup": "inStorePickup/text()",
-"homeDelivery": "homeDelivery/text()",
-"quantityLimit": "quantityLimit/text()",
-"color": "color/text()",
-"depth": "depth/text()",
-"height": "height/text()",
-"weight": "weight/text()",
-"shippingWeight": "shippingWeight/text()",
-"width": "width/text()",
-"features": "features/*/text()"  # Note the match all here to get the subfields
-
+    "active": "active/text()",
+    "regularPrice": "regularPrice/text()",
+    "salePrice": "salePrice/text()",
+    "shortDescription": "shortDescription/text()",
+    "shortDescriptionHtml": "shortDescriptionHtml/text()",
+    "longDescription": "longDescription/text()",
+    "longDescriptionHtml": "longDescriptionHtml/text()",
+    "artistName": "artistName/text()",
+    "onSale": "onSale/text()",
+    "digital": "digital/text()",
+    "frequentlyPurchasedWith": "frequentlyPurchasedWith/*/text()",  # Note the match all here to get the subfields
+    "accessories": "accessories/*/text()" ,  # Note the match all here to get the subfields
+    "relatedProducts": "relatedProducts/*/text()",  # Note the match all here to get the subfields
+    "crossSell": "crossSell/text()",
+    "salesRankShortTerm": "salesRankShortTerm/text()",
+    "salesRankMediumTerm": "salesRankMediumTerm/text()",
+    "salesRankLongTerm": "salesRankLongTerm/text()",
+    "bestSellingRank": "bestSellingRank/text()",
+    "url": "url/text()",
+    "categoryPath": "categoryPath/*/name/text()",  # Note the match all here to get the subfields
+    "categoryPathIds": "categoryPath/*/id/text()",  # Note the match all here to get the subfields
+    "categoryLeaf": "categoryPath/category[last()]/id/text()",
+    "categoryPathCount": "count(categoryPath/*/name)",
+    "customerReviewCount": "customerReviewCount/text()",
+    "customerReviewAverage": "customerReviewAverage/text()",
+    "inStoreAvailability": "inStoreAvailability/text()",
+    "onlineAvailability": "onlineAvailability/text()",
+    "releaseDate": "releaseDate/text()",
+    "shippingCost": "shippingCost/text()",
+    "class": "class/text()",
+    "classId": "classId/text()",
+    "subclass": "subclass/text()",
+    "subclassId": "subclassId/text()",
+    "department": "department/text()",
+    "departmentId": "departmentId/text()",
+    "bestBuyItemId": "bestBuyItemId/text()",
+    "description": "description/text()",
+    "manufacturer": "manufacturer/text()",
+    "modelNumber": "modelNumber/text()",
+    "image": "image/text()",
+    "condition": "condition/text()",
+    "inStorePickup": "inStorePickup/text()",
+    "homeDelivery": "homeDelivery/text()",
+    "quantityLimit": "quantityLimit/text()",
+    "color": "color/text()",
+    "depth": "depth/text()",
+    "height": "height/text()",
+    "weight": "weight/text()",
+    "shippingWeight": "shippingWeight/text()",
+    "width": "width/text()",
+    "features": "features/*/text()"  # Note the match all here to get the subfields
 }
 '''
 "startDate": "startDate/text()",
@@ -138,13 +137,15 @@ mappings = {
 
 '''
 
-def get_opensearch(the_host="localhost"):
+
+def get_opensearch(the_host="127.0.0.1"):
     host = the_host
     port = 9200
     auth = ('admin', 'admin')
     client = OpenSearch(
         hosts=[{'host': host, 'port': port}],
-        http_compress=False,  # enables gzip compression for request bodies, turned off for now due to https://github.com/opensearch-project/security/pull/3583
+        http_compress=False,
+        # enables gzip compression for request bodies, turned off for now due to https://github.com/opensearch-project/security/pull/3583
         http_auth=auth,
         # client_cert = client_cert_path,
         # client_key = client_key_path,
@@ -157,7 +158,7 @@ def get_opensearch(the_host="localhost"):
     return client
 
 
-def index_file(file, index_name, host="localhost", max_docs=2000000, batch_size=200):
+def index_file(file, index_name, host="127.0.0.1", max_docs=2000000, batch_size=200):
     docs_indexed = 0
     ### W4: S1: Load the model.  # We do this here to avoid threading issues
     client = get_opensearch(host)
@@ -165,7 +166,8 @@ def index_file(file, index_name, host="localhost", max_docs=2000000, batch_size=
     tree = etree.parse(file)
     root = tree.getroot()
     children = root.findall("./product")
-    batch_size = min(max_docs, batch_size) # make sure our batch size isn't bigger than our max_docs, else we will never transmit
+    batch_size = min(max_docs,
+                     batch_size)  # make sure our batch size isn't bigger than our max_docs, else we will never transmit
     docs = []
     time_indexing = 0
 
@@ -198,14 +200,16 @@ def index_file(file, index_name, host="localhost", max_docs=2000000, batch_size=
 
 @click.command()
 @click.option('--source_dir', '-s', help='XML files source directory')
-@click.option('--file_glob', '-g', help='The file glob to use to get the files to index in the source dir.', default="*.xml")
+@click.option('--file_glob', '-g', help='The file glob to use to get the files to index in the source dir.',
+              default="*.xml")
 @click.option('--index_name', '-i', default="bbuy_products", help="The name of the index to write to")
 @click.option('--workers', '-w', default=8, help="The number of workers/processes to use")
-@click.option('--host', '-o', default="localhost", help="The name of the host running OpenSearch")
+@click.option('--host', '-o', default="127.0.0.1", help="The name of the host running OpenSearch")
 @click.option('--max_docs', '-m', default=200000, help="The maximum number of docs to be indexed PER WORKER PER FILE.")
 @click.option('--batch_size', '-b', default=200, help="The number of docs to send per request. Max of 5000")
 @click.option('--refresh_interval', '-r', default="-1", help="The number of docs to send per request. Max of 5000")
-def main(source_dir: str, file_glob: str, index_name: str, workers: int, host: str, max_docs: int, batch_size: int, refresh_interval: str):
+def main(source_dir: str, file_glob: str, index_name: str, workers: int, host: str, max_docs: int, batch_size: int,
+         refresh_interval: str):
     batch_size = min(batch_size, 5000)  # I believe this is the default max batch size, but need to find docs on that
     logger.info(
         f"Indexing {source_dir} to {index_name} with {workers} workers, refresh_interval of {refresh_interval} to host {host} with a maximum number of docs sent per file per worker of {max_docs} and {batch_size} per batch.")
@@ -214,8 +218,10 @@ def main(source_dir: str, file_glob: str, index_name: str, workers: int, host: s
 
     client = get_opensearch(host)
 
-    #TODO: set the refresh interval
+    # TODO: set the refresh interval
     logger.debug(client.indices.get_settings(index=index_name))
+    client.indices.put_settings(index=index_name, body={'index': {'refresh_interval': refresh_interval}})
+
     start = perf_counter()
     time_indexing = 0
     with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
@@ -226,9 +232,12 @@ def main(source_dir: str, file_glob: str, index_name: str, workers: int, host: s
             time_indexing += the_time
 
     finish = perf_counter()
-    logger.info(f'Done. {docs_indexed} were indexed in {(finish - start)/60} minutes.  Total accumulated time spent in `bulk` indexing: {time_indexing/60} minutes')
+    logger.info(
+        f'Done. {docs_indexed} were indexed in {(finish - start) / 60} minutes.  Total accumulated time spent in `bulk` indexing: {time_indexing / 60} minutes')
     # TODO set refresh interval back to 5s
+    client.indices.put_settings(index=index_name, body={'index': {'refresh_interval': '5s'}})
     logger.debug(client.indices.get_settings(index=index_name))
+
 
 if __name__ == "__main__":
     main()
